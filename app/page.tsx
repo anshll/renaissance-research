@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { BookOpen } from "lucide-react"
+import Nav from "@/components/nav"
 
 import { Button } from "@/components/ui/button"
 import { PaperCard } from "@/components/paper-card"
@@ -7,27 +7,7 @@ import { PaperCard } from "@/components/paper-card"
 export default function Home() {
   return (
     <div className="min-h-screen bg-amber-50">
-      <header className="border-b border-amber-900/20 bg-amber-100">
-        <div className="container px-4 py-6 md:px-6">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <div className="flex items-center gap-2">
-              <BookOpen className="h-8 w-8 text-amber-900" />
-              <h1 className="text-2xl font-serif font-bold tracking-tight text-amber-900">Renaissance Research</h1>
-            </div>
-            <nav className="flex gap-4">
-              <Link href="/" className="text-amber-900 font-medium hover:text-amber-700 transition-colors">
-                Home
-              </Link>
-              <Link href="/papers" className="text-amber-900 font-medium hover:text-amber-700 transition-colors">
-                Papers
-              </Link>
-              <Link href="/about" className="text-amber-900 font-medium hover:text-amber-700 transition-colors">
-                About
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Nav/>
       <main>
         <section className="py-12 md:py-16 lg:py-20 bg-[url('/paper-texture.png')] bg-amber-100">
           <div className="container px-4 md:px-6 text-center">

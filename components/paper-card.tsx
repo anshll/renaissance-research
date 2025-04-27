@@ -3,16 +3,18 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge"
 
 interface PaperCardProps {
+  id: number
   title: string
   author: string
-  year: string
+  year: number
   category: string
   rating: number
   summary: string
   relevance: string
 }
 
-export function PaperCard({ title, author, year, category, rating, summary, relevance }: PaperCardProps) {
+export function PaperCard({ id, title, author, year, category, rating, summary, relevance }: PaperCardProps) {
+  let link = `/papers/${id}`
   return (
     <Card className="overflow-hidden border-amber-900/20 bg-amber-100/80 backdrop-blur-sm hover:shadow-md transition-shadow duration-300">
       <CardHeader className="border-b border-amber-900/10 bg-amber-100">
@@ -44,7 +46,7 @@ export function PaperCard({ title, author, year, category, rating, summary, rele
         </div>
       </CardContent>
       <CardFooter className="border-t border-amber-900/10 bg-amber-50 py-3">
-        <button className="text-sm text-amber-900 hover:text-amber-700 font-medium">Read Full Analysis →</button>
+        <a className="text-sm text-amber-900 hover:text-amber-700 font-medium" href={link}>Read Full Analysis →</a>
       </CardFooter>
     </Card>
   )
