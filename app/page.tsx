@@ -3,6 +3,8 @@ import Nav from "@/components/nav"
 
 import { Button } from "@/components/ui/button"
 import { PaperCard } from "@/components/paper-card"
+import paper_evals from "./papers/paper_evals.json"
+import {readex} from "./layout"
 
 export default function Home() {
   return (
@@ -15,7 +17,7 @@ export default function Home() {
               Rediscovering Forgotten Knowledge
             </h2>
             <p className="mx-auto mt-4 max-w-[700px] text-amber-800 md:text-xl">
-              Exploring old niche papers with modern analysis to uncover insights relevant for today's challenges.
+              Exploring underappreciated research with modern analysis to reveal insights applicable to today's challenges.
             </p>
             <div className="mt-8">
               <Link href="/papers">
@@ -28,35 +30,21 @@ export default function Home() {
         </section>
 
         <section className="py-12 container px-4 md:px-6">
-          <h2 className="text-2xl font-serif font-bold tracking-tight text-amber-900 mb-6">Featured Papers</h2>
+          <h2 className={`${readex.className} text-2xl font-serif tracking-tight text-amber-900 mb-6`}>Featured Papers</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <PaperCard
-              title="On the Electrodynamics of Moving Bodies"
-              author="Albert Einstein"
-              year="1905"
-              category="Physics"
-              rating={5}
-              summary="A groundbreaking paper that introduced the special theory of relativity."
-              relevance="High relevance to modern physics and our understanding of spacetime."
-            />
-            <PaperCard
-              title="A Mathematical Theory of Communication"
-              author="Claude Shannon"
-              year="1948"
-              category="Information Theory"
-              rating={5}
-              summary="Established the field of information theory and introduced the concept of bits."
-              relevance="Foundational to all modern digital communication and computing."
-            />
-            <PaperCard
-              title="The Cathedral and the Bazaar"
-              author="Eric S. Raymond"
-              year="1997"
-              category="Computer Science"
-              rating={4}
-              summary="Analysis of open-source development models contrasting traditional corporate development."
-              relevance="Shaped modern software development practices and open-source communities."
-            />
+            {paper_evals.sort((a, b) => b.scores.total - a.scores.total).slice(0, 3).map((paper) => (
+              <PaperCard
+                key={paper.id}
+                id={paper.id}
+                title={paper.title}
+                author={paper.author}
+                year={paper.year}
+                category={paper.category}
+                rating={Number((paper.scores.total / 35 * 5).toFixed(1))} // Calculate rating based on total score
+                summary={paper.synthesizer_justification.join("\n")}
+                relevance={paper.takeaway}
+              />
+            ))}
           </div>
           <div className="mt-8 text-center">
             <Link href="/papers">

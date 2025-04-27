@@ -1,5 +1,8 @@
 import { BookOpen, Filter, Search, SortAsc } from "lucide-react"
 import Link from "next/link"
+import { Readex_Pro } from "next/font/google"
+const readex = Readex_Pro({ subsets: ["latin"], variable: "--font-sans-serif" })
+
 
 export default function Nav() {
    return (
@@ -7,9 +10,10 @@ export default function Nav() {
         <div className="container px-4 py-6 md:px-6">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex items-center gap-2">
-              <BookOpen className="h-8 w-8 text-amber-900" />
+              <img src="/logo.png" className="h-16 w-16 text-amber-900"/>
+              {/*<BookOpen className="h-8 w-8 text-amber-900" />*/}
               <Link href="/">
-                <h1 className="text-2xl font-serif font-bold tracking-tight text-amber-900">Renaissance Research</h1>
+                <h1 className={`${readex.className} text-2xl font-serif tracking-tight text-amber-900`}>Renaissance Research</h1>
               </Link>
             </div>
             <nav className="flex gap-4">

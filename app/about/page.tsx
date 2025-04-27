@@ -25,11 +25,11 @@ export default function AboutPage() {
             </p>
 
             <h3 className="text-xl font-serif font-semibold text-amber-900 mt-6 mb-3">Our Methodology</h3>
-            <p>Each paper in our collection undergoes a rigorous analysis process:</p>
+            <p>Each paper in our collection undergoes a rigorous automated analysis process:</p>
             <ol className="list-decimal pl-6 space-y-2 mt-2">
-              <li>Historical context research to understand the paper's original significance</li>
-              <li>Modern relevance assessment to identify applications to contemporary challenges</li>
-              <li>Rating assignment based on both historical importance and current applicability</li>
+              <li>An optimisic view on the paper's novelty, feasibility, based on historical and modern context.</li>
+              <li>A more "devil's advocate" take on the same properties of the paper.</li>
+              <li>A fair resolution between the opposing sides, rewarding only when there are specific applications of the material in modern day</li>
               <li>Detailed justification of our analysis to provide transparency in our evaluation</li>
             </ol>
 

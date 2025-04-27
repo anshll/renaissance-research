@@ -10,6 +10,8 @@ interface PaperFiltersProps {
   setSelectedCategory: (category: string) => void
   selectedRating: string
   setSelectedRating: (rating: string) => void
+  selectedTimePeriod: string
+  setSelectedTimePeriod: (timePeriod: string) => void
   isMobile: boolean
 }
 
@@ -19,6 +21,8 @@ export function PaperFilters({
   setSelectedCategory,
   selectedRating,
   setSelectedRating,
+  selectedTimePeriod,
+  setSelectedTimePeriod,
   isMobile,
 }: PaperFiltersProps) {
   return (
@@ -42,60 +46,38 @@ export function PaperFilters({
       <div>
         <h4 className="text-sm font-medium text-amber-900 mb-3">Minimum Rating</h4>
         <RadioGroup value={selectedRating} onValueChange={setSelectedRating} className="flex flex-col space-y-1">
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="all" id="all" className="text-amber-900 border-amber-900/50" />
-            <Label htmlFor="all" className="text-amber-800">
-              All ratings
-            </Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="5" id="r5" className="text-amber-900 border-amber-900/50" />
-            <Label htmlFor="r5" className="text-amber-800">
-              5 stars only
-            </Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="4" id="r4" className="text-amber-900 border-amber-900/50" />
-            <Label htmlFor="r4" className="text-amber-800">
-              4+ stars
-            </Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="3" id="r3" className="text-amber-900 border-amber-900/50" />
-            <Label htmlFor="r3" className="text-amber-800">
-              3+ stars
-            </Label>
-          </div>
+          {[
+            { value: "all", label: "All ratings" },
+            { value: "5", label: "5 stars only" },
+            { value: "4", label: "4+ stars" },
+            { value: "3", label: "3+ stars" },
+          ].map(({ value, label }) => (
+            <div key={value} className="flex items-center space-x-2">
+              <RadioGroupItem value={value} id={`r-${value}`} className="text-amber-900 border-amber-900/50" />
+              <Label htmlFor={`r-${value}`} className="text-amber-800">
+                {label}
+              </Label>
+            </div>
+          ))}
         </RadioGroup>
       </div>
 
       <div>
         <h4 className="text-sm font-medium text-amber-900 mb-3">Time Period</h4>
-        <RadioGroup defaultValue="all" className="flex flex-col space-y-1">
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="all" id="t-all" className="text-amber-900 border-amber-900/50" />
-            <Label htmlFor="t-all" className="text-amber-800">
-              All periods
-            </Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="pre-1900" id="t-pre1900" className="text-amber-900 border-amber-900/50" />
-            <Label htmlFor="t-pre1900" className="text-amber-800">
-              Pre-1900
-            </Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="1900-1950" id="t-1900-1950" className="text-amber-900 border-amber-900/50" />
-            <Label htmlFor="t-1900-1950" className="text-amber-800">
-              1900-1950
-            </Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="1950-2000" id="t-1950-2000" className="text-amber-900 border-amber-900/50" />
-            <Label htmlFor="t-1950-2000" className="text-amber-800">
-              1950-2000
-            </Label>
-          </div>
+        <RadioGroup value={selectedTimePeriod} onValueChange={setSelectedTimePeriod} className="flex flex-col space-y-1">
+          {[
+            { value: "all", label: "All periods" },
+            { value: "1979-1989", label: "1979-1989" },
+            { value: "1990-1999", label: "1990-1999" },
+            { value: "2000-", label: "2000-" },
+          ].map(({ value, label }) => (
+            <div key={value} className="flex items-center space-x-2">
+              <RadioGroupItem value={value} id={`t-${value}`} className="text-amber-900 border-amber-900/50" />
+              <Label htmlFor={`t-${value}`} className="text-amber-800">
+                {label}
+              </Label>
+            </div>
+          ))}
         </RadioGroup>
       </div>
     </div>
