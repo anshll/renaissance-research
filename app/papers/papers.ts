@@ -15,8 +15,9 @@ export interface Paper {
     devils_advocate_justification: string[],
     synthesizer_justification: string[],
     takeaway: string,
+    url?: string | undefined
 }
 
-import paper_evals from "./paper_evals.json"
+import paper_evals from "./paper_evals.json";
 
-export const papers: Paper[] = paper_evals.sort((a, b) => a.id - b.id)
+export const papers: Paper[] = paper_evals.sort((a, b) => {return a.id - b.id});

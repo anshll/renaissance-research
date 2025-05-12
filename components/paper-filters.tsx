@@ -34,7 +34,7 @@ export function PaperFilters({
             <SelectValue placeholder="Select category" />
           </SelectTrigger>
           <SelectContent className="bg-amber-50 border-amber-900/20">
-            {categories.map((category) => (
+            {categories.filter(Boolean).map((category) => (
               <SelectItem key={category} value={category}>
                 {category === "all" ? "All Categories" : category}
               </SelectItem>
