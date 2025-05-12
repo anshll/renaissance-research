@@ -5378,40 +5378,6 @@
     "id": 165
   },
   {
-    "title": "Compiling and Verifying DNA-Based Chemical Reaction Network Implementations",
-    "author": "Shin",
-    "year": 2011,
-    "category": "Formal Methods",
-    "scores": {
-      "latent_novelty_potential": 8,
-      "cross_disciplinary_applicability": 9,
-      "technical_timeliness": 8,
-      "obscurity_advantage": 4,
-      "total": 29
-    },
-    "optimist_justification": [
-      "- This thesis presents a formal framework and algorithmic approach for verifying that a low-level implementation (a larger CRN with auxiliary species modeling DNA reactions) correctly implements a high-level specification (a smaller, target CRN).",
-      "- ...the core innovation lies in the structured way it defines and verifies this hierarchical implementation correctness for reactive systems with hidden states.",
-      "- Specifically, the key novel concept with potential for fueling modern, unconventional research lies in the framework's definition of equivalence based on pathway decomposition, particularly the notions of formal basis, regularity, and confluence...",
-      "- The algorithm's technique of enumerating undecomposable semiformal pathways using a signature ... and leveraging memoization... offers a potentially powerful approach to state-space explosion in complex reactive systems."
-    ],
-    "devils_advocate_justification": [
-      "- The paper's core approach is fundamentally misaligned with what became a critical bottleneck in practical DNA computing: kinetics and off-target reactions (leak). The explicit decision to \"completely ignore the kinetic aspect of the system\" ... is a severe limitation.",
-      "- The reliance on external tools like reaction enumerators ..., which have their own limitations..., means the verification process is not a robust, self-contained guarantee...",
-      "- ...performance of the verifier algorithm appears to be a significant practical barrier. The results section notes failures to terminate \"in three hours\" or \"in reasonable time\" on certain known translation schemes...",
-      "- Beyond ignoring kinetics, the definition of \"CRN equivalence\" based on \"pathway decomposition\" and properties like \"regularity\" and \"confluence\" seems overly complex and potentially brittle for practical use."
-    ],
-    "synthesizer_justification": [
-      "- The paper proposes a novel formal framework based on pathway decomposition for verifying hierarchical implementations in reactive systems like DNA CRNs.",
-      "- However, its explicit exclusion of kinetics and reliance on external enumerators with specific kinetic assumptions fundamentally limits its practical relevance for reliable DNA circuit design.",
-      "- Empirical performance issues, failing to terminate on simple examples, further highlight the algorithm's practical limitations for scaling to real-world complexity.",
-      "- While the theoretical concepts of pathway decomposition and signature-based enumeration are interesting, modern verification approaches addressing quantitative properties like kinetics may be more relevant."
-    ],
-    "takeaway": "Ignore",
-    "url": "https://resolver.caltech.edu/CaltechTHESIS:09182011-215125061",
-    "id": 166
-  },
-  {
     "title": "Computational Methods for Behavior Analysis",
     "author": "Eyjolfsdottir",
     "year": 2017,
