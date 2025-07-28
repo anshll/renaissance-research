@@ -94,7 +94,7 @@ export async function POST(request: Request) {
     if (isFirstMessage && paper && paper.uri && paper.mimeType) {
         // First message with a successfully uploaded paper
         result = await ai.models.generateContent({
-          model: "gemini-2.5-flash-preview-04-17",
+          model: "gemini-2.5-flash",
           contents: createUserContent(
           [
             createPartFromUri(paper.uri, paper.mimeType), // Use the uploaded file URI
