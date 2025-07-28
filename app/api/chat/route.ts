@@ -105,7 +105,7 @@ export async function POST(request: Request) {
     } else {
         // Subsequent messages or first message without a paper/failed upload
         result = await ai.models.generateContent({
-          model: "gemini-2.5-flash-preview-04-17",
+          model: "gemini-2.5-flash",
           contents: createUserContent([fullPrompt])
         });
     }
